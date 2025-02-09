@@ -1,11 +1,21 @@
 package com.security.jmv.user;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 import java.util.Objects;
 
+@Entity
+@Table(name = "user")
 public class User {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
-    private String fristName;
+    private String firstName;
     private String lastName;
     private String email;
     private String password;
@@ -15,7 +25,7 @@ public class User {
 
     public User(Integer id, String fristName, String lastName, String email, String password) {
         this.id = id;
-        this.fristName = fristName;
+        this.firstName = fristName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
@@ -25,12 +35,16 @@ public class User {
         return id;
     }
 
-    public String getFristName() {
-        return fristName;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public void setFristName(String fristName) {
-        this.fristName = fristName;
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getLastName() {
@@ -59,13 +73,17 @@ public class User {
 
     @Override
     public boolean equals(Object o) {
+        if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return Objects.equals(id, user.id) && Objects.equals(fristName, user.fristName) && Objects.equals(lastName, user.lastName) && Objects.equals(email, user.email) && Objects.equals(password, user.password);
+        return Objects.equals(id, user.id) &&
+                Objects.equals(firstName, user.firstName) &&
+                Objects.equals(lastName, user.lastName) &&
+                Objects.equals(email, user.email);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, fristName, lastName, email, password);
+        return Objects.hash(id, firstName, lastName, email);
     }
 }
