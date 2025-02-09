@@ -2,18 +2,17 @@ package com.security.jmv.user;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 import java.util.Objects;
 
 @Entity
-@Table(name = "user")
+@Table(name = "_user")
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue
     private Integer id;
     private String firstName;
     private String lastName;
