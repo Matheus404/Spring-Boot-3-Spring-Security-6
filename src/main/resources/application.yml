@@ -26,3 +26,5 @@ spring:
 
 jwt:
   secret-key: ${SECRET_KEY}
+  expiration-time: ${EXPIRATION:1800000} # 30 minutos em milissegundos
+  refresh-expiration-time: ${REFRESH-TOKEN-EXPIRATION:604800000}  # 7 dias em milissegundos
