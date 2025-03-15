@@ -3,13 +3,13 @@ spring:
     name: security-jmv
 
   datasource:
-    url: jdbc:h2:mem:jmv_security_db
-    driver-class-name: org.h2.Driver
-    username: sa
-    password: sa
+    url: jdbc:postgresql://localhost:5432/security-jmv
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: root
 
   jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: create-drop
     show-sql: true
